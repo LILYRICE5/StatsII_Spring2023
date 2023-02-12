@@ -105,11 +105,13 @@ ANSWER:
 First, I ran all code listed above. This was done as shown below:
 \lstinputlisting[language=R, firstline=41, lastline=50]{PS1.R} 
 
-Then, I estimated the p-value for this data using the ks.test() function in R. I did this because Jeff's equation for D uses the absolute value, which means we are conducting a two-tailed ks.test, meaning that rejection of the null hypothesis is determined by this p-value being lower than "alpha" (usually 0.05). I ran this ks.test with the following code:
+Then, I estimated the p-value for this data using the ks.test() function in R. Jeff's equation for D uses the absolute value, which means we are conducting a two-tailed ks.test, which also means that rejection of the null hypothesis is determined by this p-value being lower than "alpha" (usually 0.05). I ran this ks.test with the following code:
 	
 \lstinputlisting[language=R, firstline=66, lastline=69]{PS1.R} 	
 
 I was sure that this was the p-value I should be looking for when estimating it manually, as this test produced the correct D estimate (that matched the estimate from Jeff's test statistic equation).
+
+This p-value of less than 2.22e-16 is extremely small, and definitely below the "default" significance level (0.05). This is grounds to reject our Null Hypothesis, that there is no difference between the reference function (the normal distribution) and the emperical cumulative distribution function (in other words, is grounds to reject the hypothesis that our data's CDF is normal).
 
 
 I then attempted to estimate the p-value manually. I tried multiple different methods: including writing a new function, trying MLE to do so, pnorm(), and others, but was untimately unsuccessful at getting a function that produced a p-value that was appropriate. I have not included this code in this .pdf, however it is in the .R file if needed (and for my reference when correcting my work).
