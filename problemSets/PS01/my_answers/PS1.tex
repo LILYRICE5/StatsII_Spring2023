@@ -61,7 +61,7 @@
 \newtheorem{hyp}{Hypothesis}
 
 \title{Problem Set 1}
-\date{Due: February 19, 2023}
+\date{Due: February 12, 2023}
 \author{Lily Rice - 16304845 - Applied Stats II}
 
 
@@ -99,11 +99,61 @@ $$p(D \leq x) \frac{\sqrt {2\pi}}{x} \sum _{k=1}^{\infty }e^{-(2k-1)^{2}\pi ^{2}
 	# generate test statistic
 	D <- max(abs(empiricalCDF - pnorm(data))) \end{lstlisting}
 
-\vspace{3in}
+\vspace{1cm}
+
+ANSWER:
+First, I ran all code listed above. This was done as shown below:
+\lstinputlisting[language=R, firstline=41, lastline=50]{PS1.R} 
+
+Then, I estimated the p-value for this data using the ks.test() function in R. I did this because Jeff's equation for D uses the absolute value, which means we are conducting a two-tailed ks.test, meaning that rejection of the null hypothesis is determined by this p-value being lower than "alpha" (usually 0.05). I ran this ks.test with the following code:
+	
+\lstinputlisting[language=R, firstline=66, lastline=69]{PS1.R} 	
+
+I was sure that this was the p-value I should be looking for when estimating it manually, as this test produced the correct D estimate (that matched the estimate from Jeff's test statistic equation).
+
+
+I then attempted to estimate the p-value manually. I tried multiple different methods: including writing a new function, trying MLE to do so, pnorm(), and others, but was untimately unsuccessful at getting a function that produced a p-value that was appropriate. I have not included this code in this .pdf, however it is in the .R file if needed (and for my reference when correcting my work).
+	
+
+
+
 
 \section*{Question 2}
 \noindent Estimate an OLS regression in \texttt{R} that uses the Newton-Raphson algorithm (specifically \texttt{BFGS}, which is a quasi-Newton method), and show that you get the equivalent results to using \texttt{lm}. Use the code below to create your data.
 \vspace{.5cm}
-\lstinputlisting[language=R, firstline=51,lastline=53]{PS1.R} 
+
+I used the code listed to create my data first:
+
+\lstinputlisting[language=R, firstline=123,lastline=125]{PS1.R} 
+
+Then, I ran my OLS regression that uses the Quasi-Newton method on this data (first plotting my data just to have a look; then by coding the relationship between variables using R, and finally by running the regression on this coded linear likelihood equation). These steps can be seen in the code below:
+\lstinputlisting[language=R, firstline=128,lastline=143]{PS1.R} 
+
+This OLS regression returned the following parameters:
+\lstinputlisting[language=R, firstline=145,lastline=146]{PS1.R} 
+
+Then, I checked my estimates from the OLS regression by running a lm regression using the following code:
+\lstinputlisting[language=R, firstline=149,lastline=149]{PS1.R} 
+Which output the following summary statistics:
+	\begin{verbatim}
+Call:lm(formula = data$y ~ data$x)
+Residuals:    
+Min      1Q  Median      3Q     Max
+ -3.1906 -0.9374 -0.1665  0.8931  4.8032
+ 
+Coefficients:            
+           Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.13919    0.25276   0.551    0.582    
+data$x       2.72670    0.04159  65.564   <2e-16 ***---
+
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.447 on 198 degrees of freedom
+Multiple R-squared:  0.956,	Adjusted R-squared:  0.9557 
+F-statistic:  4299 on 1 and 198 DF,  p-value: < 2.2e-16
+\end{verbatim} 
+
+This confirmed that my OLS regression using Quasi-Newton methods and my lm regression output equivalent results, as both output an intercept of 0.139 and a beta (slope) of 2.727. One difference between these two is that we don't get an estimate of sigma squared with the lm() method.
+
 
 \end{document}
