@@ -55,12 +55,56 @@ graduation <- read.table("http://statmath.wu.ac.at/courses/StatsWithR/Powers.txt
 # Then construct 95-percent confidence intervals for the coefficients of the seven explanatory variables. 
 # What conclusions can you draw from these results? Finally, offer two brief, but concrete, interpretations of each of the estimated coefficients of income and intact.
 
-## want to transform the data 
+## want to transform the data into hsgrad being a binary variable, do so as follows
+## making it a logical vector:
 
-# (b) The logistic regression in the previous problem assumes that the partial relationship between the log-odds of high-school graduation and number of siblings is linear. 
+graduation$hsgrad <- as.logical(ifelse(graduation$hsgrad == "Yes", 1, 0))
+
+class(graduation$hsgrad)
+
+## V USEFUL - ., WILL RUN IT ON ALL OF THE COVARIATES
+mod1 <- glm(hsgrad ~ ., data = graduation, family ="binomial")
+
+summary(mod1)
+
+## NEXT CREATE A NULL MODEL - so we can then run a likelihood ratio model
+
+nullmod <- glm(hsgrad ~ 1, data = graduation, family = "binomial")
+
+## run anova:
+anova(nullmod, mod1, test = "Chisq")
+anova(nullmod, mod1, test = "LRT") #equivalent
+
+## want to extract confidence intervals and then amke a dataframe
+
+## data frame studd makes 3 wrror bars (lower ci, mid, and upper; first column is 2.5, (the lower
+## third column is upper, and middle is the term itself))
+
+confmod <- data.frame(cbind(lower = exp(confint(mod1)[,1]),
+                            coefs = exp(coef(mod1)),
+                            upper = exp(confint(mod1)[,2])))
+
+summary(confmod)
+
+## and can graph this
+
+# (b) The logistic regression in the previous problem assumes that the partial relationship between the log-odds 
+# (its ok, both will not completely change outcome) 
+# of high-school graduation and number of siblings is linear. 
 # Test for nonlinearity by fitting a model that treats nsibs as a factor, performing an appropriate likelihood-ratio test. 
 # In the course of working this problem, you should discover an issue in the data. 
 # Deal with the issue in a reasonable manner. 
 # Does the result of the test change?
 
+## problem = there is one case of a negative number of siblings; often why this happens = bc of the codiing
+## -1 often means a non-answer, options --> could change to a 1 or drop it
 
+graduation$nsibs <- as.integer(graduation$nsibs)
+range(graduation$nsibs)
+
+graduation$nsibs <- as.numeric(graduation$nsibs)
+range(graduation$nsibs)
+
+graduation$nsibs <- as.factor(graduation$nsibs)
+range(graduation$nsibs)
+hist(graduation$nsibs)
