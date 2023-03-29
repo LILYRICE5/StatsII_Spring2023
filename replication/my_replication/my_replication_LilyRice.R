@@ -132,8 +132,6 @@ ggplot(svyby(~fair_post,~copartisan*lenient_post, cces_design, svymean, na.rm = 
 
 ggplot(svyby(~incum_post,~copartisan*lenient_post, cces_design, svymean, na.rm = T)) + geom_pointrange(aes(x = rownames(svyby(~incum_post,~copartisan*lenient_post, cces_design, svymean, na.rm = T)), y=incum_post, ymin=incum_post-1.96*se, ymax = incum_post+1.96*se)) + xlab("Treatment Combination") + ylab("Incumbent Support") + scale_x_discrete(labels = c("1 Year \n + Outpartisan", "1 Day \n + Outpartisan", "1 Year \n + Copartisan", "1 Day \n + Copartisan")) + scale_y_continuous(limits = c(-3,3)) + geom_hline(yintercept = 0, linetype = "dashed", colour = "grey60")  + theme_bw() + labs(title = "Incumbent Support") + ggmjntheme
 
-
-
 # Regression models
 # Study 1
 pre_m1c <- glm(elec_sup_pre ~ lenient_pre + white + black + birthyr + pknow + as.factor(gender) + ideo + educ, family = "gaussian", cces)
@@ -141,8 +139,7 @@ pre_m2c <- glm(elec_sup_pre ~ def_white + white + black + birthyr + pknow + as.f
 pre_m3c <- glm(elec_sup_pre ~ lenient_pre*def_white + white + black + birthyr + pknow + as.factor(gender) + ideo + educ, family = "gaussian", cces)
 
 # Table C1
-## Lily: Note, this outputs the code, but not a nicely formatted table, I think because this is going through
-## an .R file not an .Rmd file
+## Note, this outputs code into the console, I paste this into a .tex file to produce a PDF with this (and all) tables replicated
 stargazer(pre_m1c, pre_m2c, pre_m3c, dep.var.labels = c("Re-election Support"), title = "Regression Models including Defendant Race, Study 1", header = FALSE, digits=2, style = "apsr", star.cutoffs = c(.05, .01, .001), covariate.labels = c("Lenient Sentence (1 Day)", "White", "Black", "Age", "Pros. Knowledge", "Woman", "Conservatism", "Education"))
 
 pre_elecc <- glm(elec_sup_pre ~ lenient_pre + white + black + birthyr + pknow + as.factor(gender) + ideo + educ, family = "gaussian", cces)
@@ -151,6 +148,5 @@ pre_appc <- glm(approve_pre ~ lenient_pre + white + black + birthyr + pknow + as
 pre_fairc <- glm(fair_pre ~ lenient_pre + white + black + birthyr + pknow + as.factor(gender) + ideo + educ, family = "gaussian", cces)
 
 # Table C2
-## Lily: same as above, outputs the correct figures but not in a nicely formatted table
 stargazer(pre_elecc, pre_supc, pre_appc, pre_fairc, dep.var.labels = c("Re-election Support", "Incumbent Support", "Approval", "Fairness"), title = "Alternative Outcome Models, Study 1", header = FALSE, digits=2, style = "apsr", star.cutoffs = c(.05, .01, .001), covariate.labels = c("Lenient Sentence (1 Day)", "White", "Black", "Age", "Pros. Knowledge", "Woman", "Conservatism", "Education"))
 
