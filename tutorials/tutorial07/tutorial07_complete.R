@@ -52,6 +52,11 @@ legend("bottomleft",
        lty = 1, 
        col = c("red", "blue"),
        text.col = c("red", "blue"))
+# Note: the confidence intervals on this plot are for the prediction, not
+# the standard error of the terms in the model (the effect of sex in the 
+# cox ph model was significant, here the CIs overlap. Always check your
+# results and interpretation!)
+
 
 # Adding an interaction
 cox.int <- coxph(child_surv ~ sex * socBranch, data = child)
