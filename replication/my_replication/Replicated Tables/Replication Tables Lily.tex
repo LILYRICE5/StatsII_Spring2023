@@ -1,0 +1,87 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{graphicx,textcomp}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage[reqno]{amsmath}
+\usepackage{amsthm}
+\usepackage{fancyvrb}
+\usepackage{amssymb,enumerate}
+\usepackage[all]{xy}
+\usepackage{endnotes}
+\usepackage{lscape}
+\newtheorem{com}{Comment}
+\usepackage{float}
+\usepackage{hyperref}
+\newtheorem{lem} {Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{cor}{Corollary}
+\newtheorem{obs}{Observation}
+\usepackage[compact]{titlesec}
+\usepackage{dcolumn}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{multirow}
+\usepackage{xcolor}
+\newcolumntype{.}{D{.}{.}{-1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\definecolor{light-gray}{gray}{0.65}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+\newcommand{\Sref}[1]{Section~\ref{#1}}
+\newtheorem{hyp}{Hypothesis}
+
+\title{Replication Project Tables}
+\date{Due: April 2, 2023}
+\author{Lily Rice - 16304845 - Applied Stats II}
+
+
+\begin{document}
+	\maketitle
+	\section*{Tables Produced in Replication Project - Lily Rice}
+
+\begin{table}[!htbp] \centering   \caption{Regression Models including Defendant Race, Study 1}   \label{} \begin{tabular}{@{\extracolsep{5pt}}lccc} \\[-1.8ex]\hline \\[-1.8ex] \\[-1.8ex] & \multicolumn{3}{c}{Re-election Support} \\ \\[-1.8ex] & (1) & (2) & (3)\\ \hline \\[-1.8ex]  Lenient Sentence (1 Day) & 0.57$^{***}$ &  & 0.58$^{***}$ \\   & (0.06) &  & (0.08) \\   White &  & $-$0.04 & $-$0.04 \\   &  & (0.06) & (0.08) \\   Black & $-$0.01 & 0.001 & $-$0.01 \\   & (0.08) & (0.09) & (0.08) \\   Age & $-$0.23$^{*}$ & $-$0.21 & $-$0.23$^{*}$ \\   & (0.11) & (0.12) & (0.11) \\   Pros. Knowledge & $-$0.002 & $-$0.003 & $-$0.002 \\   & (0.002) & (0.002) & (0.002) \\   Woman & 0.05 & 0.04 & 0.05 \\   & (0.03) & (0.03) & (0.03) \\   Conservatism & $-$0.03 & $-$0.04 & $-$0.03 \\   & (0.06) & (0.06) & (0.06) \\   Education & 0.07$^{*}$ & 0.07$^{**}$ & 0.07$^{*}$ \\   & (0.03) & (0.03) & (0.03) \\   educ & $-$0.01 & $-$0.01 & $-$0.01 \\   & (0.02) & (0.02) & (0.02) \\   lenient\_pre1:def\_white1 &  &  & $-$0.02 \\   &  &  & (0.12) \\   Constant & 6.27 & 7.61$^{*}$ & 6.29 \\   & (3.56) & (3.72) & (3.56) \\  N & 982 & 982 & 982 \\ Log Likelihood & $-$1,305.65 & $-$1,350.84 & $-$1,305.23 \\ AIC & 2,629.29 & 2,719.68 & 2,632.46 \\ \hline \\[-1.8ex] \multicolumn{4}{l}{$^{*}$p $<$ .05; $^{**}$p $<$ .01; $^{***}$p $<$ .001} \\ \end{tabular} \end{table} 
+
+
+
+
+
+
+
+
+
+
+\begin{table}[!htbp] \centering   \caption{Alternative Outcome Models, Study 1}   \label{} \begin{tabular}{@{\extracolsep{5pt}}lcccc} \\[-1.8ex]\hline \\[-1.8ex] \\[-1.8ex] & Re-election Support & Incumbent Support & Approval & Fairness \\ \\[-1.8ex] & (1) & (2) & (3) & (4)\\ \hline \\[-1.8ex]  Lenient Sentence (1 Day) & 0.57$^{***}$ & 0.71$^{***}$ & 1.02$^{***}$ & 0.61$^{***}$ \\   & (0.06) & (0.06) & (0.08) & (0.06) \\   White & $-$0.01 & 0.03 & 0.09 & 0.03 \\   & (0.08) & (0.08) & (0.12) & (0.09) \\   Black & $-$0.23$^{*}$ & $-$0.20 & $-$0.11 & $-$0.22 \\   & (0.11) & (0.11) & (0.16) & (0.12) \\   Age & $-$0.002 & $-$0.002 & $-$0.002 & $-$0.001 \\   & (0.002) & (0.002) & (0.002) & (0.002) \\   Pros. Knowledge & 0.05 & 0.04 & 0.01 & 0.05 \\   & (0.03) & (0.03) & (0.05) & (0.04) \\   Woman & $-$0.03 & $-$0.02 & $-$0.05 & 0.01 \\   & (0.06) & (0.06) & (0.08) & (0.07) \\   Conservatism & 0.07$^{*}$ & 0.06$^{*}$ & 0.05 & 0.06$^{*}$ \\   & (0.03) & (0.03) & (0.04) & (0.03) \\   Education & $-$0.01 & $-$0.02 & $-$0.05 & $-$0.01 \\   & (0.02) & (0.02) & (0.03) & (0.02) \\   Constant & 6.27 & 3.27 & 7.38 & 4.57 \\   & (3.56) & (3.60) & (4.91) & (3.79) \\  N & 982 & 978 & 984 & 980 \\ Log Likelihood & $-$1,305.65 & $-$1,310.96 & $-$1,626.97 & $-$1,365.16 \\ AIC & 2,629.29 & 2,639.91 & 3,271.94 & 2,748.32 \\ \hline \\[-1.8ex] \multicolumn{5}{l}{$^{*}$p $<$ .05; $^{**}$p $<$ .01; $^{***}$p $<$ .001} \\ \end{tabular} \end{table} 
+
+
+	
+\end{document}
