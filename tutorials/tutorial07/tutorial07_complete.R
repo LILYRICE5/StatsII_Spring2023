@@ -3,7 +3,7 @@
 ##################################
 
 data(child)
-
+head(child)
 #### Completed
 # a)
 child_surv <- with(child, Surv(enter, exit, event))

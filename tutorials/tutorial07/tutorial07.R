@@ -27,6 +27,10 @@ pkgTest <- function(pkg){
 
 lapply(c("survival", "eha", "tidyverse", "ggfortify", "stargazer"),  pkgTest)
 
+install.packages("survival", "eha", "tidyverse", "ggfortify", "stargazer")
+install.packages("eha")
+library(eha)
+
 #### Survival Analysis
 
 # The `child` dataset from the `eha` package is a dataset of 26,855 children born in 
@@ -45,10 +49,17 @@ lapply(c("survival", "eha", "tidyverse", "ggfortify", "stargazer"),  pkgTest)
 # - illeg: Born out of marriage ("illegitimate")?
 # - m.age: Mother's age.
 
+data(child)
+head(child)
+
+
 ## a) Using the Surv() function, build a survival object out of the `child` data.frame. 
 ##    Using survfit() and R's plotting functions, produce a Kaplan-Meier plot of the data,
 ##    firstly for overall survival, and secondly comparing categories of socBranch. How do
 ##    you interpret the second plot?
+
+child_surv <- with(child, Surv(enter, exit, event))
+
 
 ## b) Run a Cox Proportional Hazard regression on the data, using an additive model with 
 ##    `socBranch` and `sex` as explanatory variables. Run a test to assess the quality of the
