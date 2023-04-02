@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.12)  2 APR 2023 15:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.12)  2 APR 2023 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"Replication Tables Lily.tex"
-(./Replication Tables Lily.tex
+**Twist_Tables.tex
+(./Twist_Tables.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24>
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
@@ -807,18 +807,12 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count335
 \l__pdf_internal_box=\box75
 )
-(./Replication Tables Lily.aux
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
+(./Twist_Tables.aux
 
 LaTeX Warning: Label `' multiply defined.
 
 )
-\openout1 = `"Replication Tables Lily.aux"'.
+\openout1 = `Twist_Tables.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
 LaTeX Font Info:    ... okay on input line 68.
@@ -890,45 +884,39 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 68.
 LaTeX Info: Redefining \pageref on input line 68.
 LaTeX Info: Redefining \nameref on input line 68.
- (./Replication Tables Lily.out) (./Replication Tables Lily.out)
+ (./Twist_Tables.out) (./Twist_Tables.out)
 \@outlinefile=\write7
-\openout7 = `"Replication Tables Lily.out"'.
+\openout7 = `Twist_Tables.out'.
 
 \c@lstlisting=\count343
+ [1
 
-Overfull \hbox (39.53247pt too wide) in paragraph at lines 75--75
- [][] 
- []
-
-[1
-
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3] [4] [5] (./Replication Tables Lily.aux)
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+ (./Twist_Tables.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `"Replication Tables Lily".out' has not chang
-ed.
+Package rerunfilecheck Info: File `Twist_Tables.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25903 strings out of 478268
- 463339 string characters out of 5846347
- 783884 words of memory out of 5000000
- 43638 multiletter control sequences out of 15000+600000
+ 25897 strings out of 478268
+ 463018 string characters out of 5846347
+ 769835 words of memory out of 5000000
+ 43636 multiletter control sequences out of 15000+600000
  478857 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,89p,3257b,333s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,10n,89p,3244b,333s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
 usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
 r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "Replication Tables Lily.pdf" (5 pages, 71036 bytes).
+Output written on Twist_Tables.pdf (3 pages, 69316 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
+ 56 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
+ 6 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

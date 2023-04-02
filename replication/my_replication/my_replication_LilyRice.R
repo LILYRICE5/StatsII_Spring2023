@@ -2,21 +2,11 @@
 # Final Replication Project - Lily Rice #
 #########################################
 
-################################################
+########################################################
+# (1) Replication of all Figures & Tables in Manuscript:
+########################################################
 
-################################################
 
-## Install Packages
-install.packages("haven")
-install.packages("tidyverse")
-install.packages("ggplot2")
-install.packages("psych")
-install.packages("survey")
-install.packages("labelled")
-install.packages("knitr")
-install.packages("stargazer")
-install.packages("sjPlot")
-install.packages("gridExtra")
 
 ## Load necessary libraries
 library(haven)
@@ -136,14 +126,13 @@ ggplot(svyby(~fair_post,~copartisan*lenient_post, cces_design, svymean, na.rm = 
 ggplot(svyby(~incum_post,~copartisan*lenient_post, cces_design, svymean, na.rm = T)) + geom_pointrange(aes(x = rownames(svyby(~incum_post,~copartisan*lenient_post, cces_design, svymean, na.rm = T)), y=incum_post, ymin=incum_post-1.96*se, ymax = incum_post+1.96*se)) + xlab("Treatment Combination") + ylab("Incumbent Support") + scale_x_discrete(labels = c("1 Year \n + Outpartisan", "1 Day \n + Outpartisan", "1 Year \n + Copartisan", "1 Day \n + Copartisan")) + scale_y_continuous(limits = c(-3,3)) + geom_hline(yintercept = 0, linetype = "dashed", colour = "grey60")  + theme_bw() + labs(title = "Incumbent Support") + ggmjntheme
 
 # Regression models
-# Study 1
+## Study 1
 pre_m1c <- glm(elec_sup_pre ~ lenient_pre + white + black + birthyr + pknow + as.factor(gender) + ideo + educ, family = "gaussian", cces)
 pre_m2c <- glm(elec_sup_pre ~ def_white + white + black + birthyr + pknow + as.factor(gender) + ideo + educ, family = "gaussian", cces)
 pre_m3c <- glm(elec_sup_pre ~ lenient_pre*def_white + white + black + birthyr + pknow + as.factor(gender) + ideo + educ, family = "gaussian", cces)
 
-# Table C1
-## Note, this outputs code into the console, I paste this into a .tex file to produce a PDF with this (and all) tables replicated
-stargazer(pre_m1c, pre_m2c, pre_m3c, dep.var.labels = c("Re-election Support"), title = "Regression Models including Defendant Race, Study 1", header = FALSE, digits=2, style = "apsr", star.cutoffs = c(.05, .01, .001), covariate.labels = c("Lenient Sentence (1 Day)", "White", "Black", "Age", "Pros. Knowledge", "Woman", "Conservatism", "Education"))
+### Table C1
+stargazer(pre_m1c, pre_m2c, pre_m3c, dep.var.labels = c("Re-election Support"), title = "Regression Models including Defendant Race, Study 1", header = FALSE, digits=2, style = "apsr", star.cutoffs = c(.05, .01, .001), covariate.labels = c("Lenient Sentence (1 Day)", "White Defendent", "White", "Black", "Age", "Pros. Knowledge", "Woman", "Conservatism", "Education"))
 
 pre_elecc <- glm(elec_sup_pre ~ lenient_pre + white + black + birthyr + pknow + as.factor(gender) + ideo + educ, family = "gaussian", cces)
 pre_supc <- glm(incum_pre ~ lenient_pre + white + black + birthyr + pknow + as.factor(gender) + ideo + educ, family = "gaussian", cces)
@@ -220,4 +209,77 @@ rbind(cbind(svyby(~elec_sup_post, ~copartisan*lenient_post, subset(cces_design, 
   ylab("Re-Election Support")
 
 
-##### lily workings
+################################
+# (2) My Contribution ("Twist"):
+################################
+
+### My Contribution is an expansion of this Study 1 Regression analysis.
+### Their basic glm model = testing the effect of the IV (Leniency), on the DV, general re-election support, 
+### Results = Leniency significantly affects support, but in the opposite direction that was hypothesised (in H1)
+### They include 1 interaction effect in the appendix, testing if, in Study 1, there was an interaction between 
+### defendent race and leniency; but they did not find a signficant relationship, so they abandon this in the main 
+### paper. This was testing if the effect of leniency on support varies depending on the race of the defendent.
+
+### There is reason to believe that other interaction effects may be present however.
+### For example, the leniency treatment may have had a different effect on support when the respondent was black. 
+
+### The theoretical reasons for assuming interaction may be present between lenient treatment and respondent's race is below:
+
+### This study was completed in 2020, during a period of heightened police violence and anti-police brutality protest, 
+### arguably heightening racial tensions and making the link between race and political ideology more distinct/relevant.
+### Conservatives in general were less supportive of the protests at this time, more "back the blue" supporters were 
+### Conservative, and in general conservatives seemed to support the suppression of protest by arresting protesters
+### more than liberals did. Additionally, conservatives in general tend to support tradition more than liberals, and 
+### the US has "traditionally" implemented harsh sentencing practices/policies.
+
+### Also, black Americans are disproportionally arrested, sentenced, and imprisoned in the United States. This demographic
+### experiences police brutality more frequently, and at the time of the 2020 CES study (used for this paper), the issue of 
+### policy brutality against African Americans was highly salient. For these reasons, theoretically there might be a significant
+### different effect of the leniency treatment depending on if the respondent is black or not. Specifically, I would assume that 
+### the leniency treatment might have a greater positive effect (lead to greater electoral support) when the respondent is black 
+### than when the respondent is not black. This is the rationale behind completing an additional linear regression model with an 
+### interaction term between leniency and black for my "twist" to this replication.
+
+### I run this interaction below, including the interaction term (lenient_pre * black)
+
+mod_add <- glm(elec_sup_pre ~ lenient_pre + white + black + birthyr + pknow
+               + as.factor(gender) + ideo + educ, family = "gaussian", cces)
+
+mod_int <- glm(elec_sup_pre ~ lenient_pre*black + lenient_pre + white + black + 
+              birthyr + pknow + as.factor(gender) + ideo + educ, 
+               family = "gaussian", cces)
+
+### TWIST Table of Regression outputs (output of additive and interaction models):
+stargazer(mod_add, mod_int, dep.var.labels = c("Re-election Support"), 
+          title = "Regression Models including black*lenient, Study 1",
+          header = FALSE, digits=2, style = "apsr", star.cutoffs = c(.05, .01, .001), 
+          covariate.labels = c("Lenient Sentence (1 Day)", "White", "Black", "Age", "Pros. Knowledge", "Woman", "Conservatism", "Education"))
+
+### Next, test if this interactive model is better than the first model (the additive), using Likelihood Ratio Test
+### I will do this with the lmtest package and following the steps below:
+
+install.packages("lmtest")
+library(lmtest)
+
+# Calc Test Stat for each model:
+
+ts_mod_add <- logLik(mod_add)
+ts_mod_int <- logLik(mod_int)
+
+teststat <- -2 * (as.numeric(ts_mod_add) - as.numeric(ts_mod_int))
+
+# Calc P Value
+pval <- pchisq(teststat, df=1, lower.tail = FALSE)
+
+# Interpretation: is the interactive model better predictor than the additive?
+## pval = 0.02, so at the 0.05 significance level, reject Null Hypothesis that there
+## is no difference between the interactive and the additive models, and use the interactive
+## model instead
+
+## However, ultimately I would advise using the additive model (as the authors do). 
+## This is because the interactive model is not hugely better at predicting support
+## for the prosecutor, and for the purposes of this research question, H1 is effectively
+## tested with the less complicated additive model. In future research, it may be interesting
+## to test additional variables and more in-depth research questions that more specifically
+## address the role that race plays in opinion of prosecutorial discretion, but that is
+## in some ways beyond the scope of this research question. 

@@ -1,0 +1,78 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{graphicx,textcomp}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage[reqno]{amsmath}
+\usepackage{amsthm}
+\usepackage{fancyvrb}
+\usepackage{amssymb,enumerate}
+\usepackage[all]{xy}
+\usepackage{endnotes}
+\usepackage{lscape}
+\newtheorem{com}{Comment}
+\usepackage{float}
+\usepackage{hyperref}
+\newtheorem{lem} {Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{cor}{Corollary}
+\newtheorem{obs}{Observation}
+\usepackage[compact]{titlesec}
+\usepackage{dcolumn}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{multirow}
+\usepackage{xcolor}
+\newcolumntype{.}{D{.}{.}{-1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\definecolor{light-gray}{gray}{0.65}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+\newcommand{\Sref}[1]{Section~\ref{#1}}
+\newtheorem{hyp}{Hypothesis}
+
+\title{Replication Project Tables}
+\date{Due: April 2, 2023}
+\author{Lily Rice - 16304845 - Applied Stats II}
+
+
+\begin{document}
+	\maketitle
+	\section*{Table of Twist (Interactive Term Added) Models - Lily Rice}
+
+\begin{table}[!htbp] \centering   \caption{Regression Models including black*lenient, Study 1}   \label{} \begin{tabular}{@{\extracolsep{5pt}}lcc} \\[-1.8ex]\hline \\[-1.8ex] \\[-1.8ex] & \multicolumn{2}{c}{Re-election Support} \\ \\[-1.8ex] & (1) & (2)\\ \hline \\[-1.8ex]  Lenient Sentence (1 Day) & 0.57$^{***}$ & 0.52$^{***}$ \\   & (0.06) & (0.06) \\   White & $-$0.01 & $-$0.01 \\   & (0.08) & (0.08) \\   Black & $-$0.23$^{*}$ & $-$0.45$^{**}$ \\   & (0.11) & (0.15) \\   Age & $-$0.002 & $-$0.002 \\   & (0.002) & (0.002) \\   Pros. Knowledge & 0.05 & 0.05 \\   & (0.03) & (0.03) \\   Woman & $-$0.03 & $-$0.03 \\   & (0.06) & (0.06) \\   Conservatism & 0.07$^{*}$ & 0.07$^{**}$ \\   & (0.03) & (0.03) \\   Education & $-$0.01 & $-$0.01 \\   & (0.02) & (0.02) \\   lenient\_pre1:black &  & 0.41$^{*}$ \\   &  & (0.18) \\   Constant & 6.27 & 6.31 \\   & (3.56) & (3.55) \\  N & 982 & 982 \\ Log Likelihood & $-$1,305.65 & $-$1,303.00 \\ AIC & 2,629.29 & 2,626.00 \\ \hline \\[-1.8ex] \multicolumn{3}{l}{$^{*}$p $<$ .05; $^{**}$p $<$ .01; $^{***}$p $<$ .001} \\ \end{tabular} \end{table} 
+
+\begin{table}[!htbp] \centering   \caption{Regression Models including black*lenient, Study 1}   \label{} \begin{tabular}{@{\extracolsep{5pt}}lcc} \\[-1.8ex]\hline \\[-1.8ex] \\[-1.8ex] & \multicolumn{2}{c}{Re-election Support} \\ \\[-1.8ex] & (1) & (2)\\ \hline \\[-1.8ex]  Lenient Sentence (1 Day) & 0.57$^{***}$ & 0.52$^{***}$ \\   & (0.06) & (0.06) \\   White & $-$0.01 & $-$0.01 \\   & (0.08) & (0.08) \\   Black & $-$0.23$^{*}$ & $-$0.45$^{**}$ \\   & (0.11) & (0.15) \\   Age & $-$0.002 & $-$0.002 \\   & (0.002) & (0.002) \\   Pros. Knowledge & 0.05 & 0.05 \\   & (0.03) & (0.03) \\   Woman & $-$0.03 & $-$0.03 \\   & (0.06) & (0.06) \\   Conservatism & 0.07$^{*}$ & 0.07$^{**}$ \\   & (0.03) & (0.03) \\   Education & $-$0.01 & $-$0.01 \\   & (0.02) & (0.02) \\   lenient\_pre1:black &  & 0.41$^{*}$ \\   &  & (0.18) \\   Constant & 6.27 & 6.31 \\   & (3.56) & (3.55) \\  N & 982 & 982 \\ Log Likelihood & $-$1,305.65 & $-$1,303.00 \\ AIC & 2,629.29 & 2,626.00 \\ \hline \\[-1.8ex] \multicolumn{3}{l}{$^{*}$p $<$ .05; $^{**}$p $<$ .01; $^{***}$p $<$ .001} \\ \end{tabular} \end{table} 
+
+
+
+\end{document} 
