@@ -261,15 +261,7 @@ stargazer(mod_add, mod_int, dep.var.labels = c("Re-election Support"),
 install.packages("lmtest")
 library(lmtest)
 
-# Calc Test Stat for each model:
-
-ts_mod_add <- logLik(mod_add)
-ts_mod_int <- logLik(mod_int)
-
-teststat <- -2 * (as.numeric(ts_mod_add) - as.numeric(ts_mod_int))
-
-# Calc P Value
-pval <- pchisq(teststat, df=1, lower.tail = FALSE)
+lrtest(mod_add, mod_int)
 
 # Interpretation: is the interactive model better predictor than the additive?
 ## pval = 0.02, so at the 0.05 significance level, reject Null Hypothesis that there
