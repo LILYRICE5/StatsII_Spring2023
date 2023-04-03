@@ -37,7 +37,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 ##############
 
 # student roster
-student_roster <- read.csv("https://raw.githubusercontent.com/ASDS-TCD/StatsII_Spring2023/main/student_roster/student_roster.csv", na.strings = c("NA", "<NA>", "-"))
+student_roster <- read.csv("https://raw.githubusercontent.com/ASDS-TCD/StatsII_Spring2023/main/replication/schedule/student_roster.csv", na.strings = c("NA", "<NA>", "-"))
 
 # randomly select order based on seeds from student IDs
 set.seed(12345)

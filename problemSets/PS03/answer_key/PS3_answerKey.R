@@ -62,8 +62,6 @@ summary(ordered_logit)
 
 # load data
 mexico_elections <- read.csv("https://raw.githubusercontent.com/ASDS-TCD/StatsII_Spring2023/main/datasets/MexicoMuniData.csv")
-mexico_elections <- mexico_elections[!is.na(mexico_elections$pan.vote.09) & mexico_elections$pan.vote.09 < 1, ]
-mexico_elections$competitive.district <- ifelse(.45 < mexico_elections$pan.vote.09 & mexico_elections$pan.vote.09 <.55, 1, 0)
 # estimate poisson model
 mex_poisson <- glm(PAN.visits.06 ~ competitive.district + marginality.06 + PAN.governor.06, data = mexico_elections, family=poisson)
 summary(mex_poisson)
