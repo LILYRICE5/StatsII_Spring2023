@@ -6,8 +6,6 @@
 # (1) Replication of all Figures & Tables in Manuscript:
 ########################################################
 
-
-
 ## Load necessary libraries
 library(haven)
 library(tidyverse)
@@ -301,7 +299,7 @@ stargazer(mod_add, mod_int2, dep.var.labels = c("Re-election Support"),
 
 ## VERY INTERESTING RESULTS, large STATISTICAL SIGNIFICANCE (p<0.001) AND GOES IN THE OPPOSITE DIRECTION!
 ## (included on Twist .tex document)
-## These results indicate that the driving of the postitive impact of the lenient treatment on 
+## These results indicate that the driving of the positive impact of the lenient treatment on 
 ## support is pretty much entirely from less conservative respondents (makes sense during this 
 ## period of polarisation in the US in particular, and concerning the general differences
 ## in beliefs of conservatives vs liberals when it comes to punishment in the US).
