@@ -275,3 +275,33 @@ lrtest(mod_add, mod_int)
 ## to test additional variables and more in-depth research questions that more specifically
 ## address the role that race plays in opinion of prosecutorial discretion, but that is
 ## in some ways beyond the scope of this research question. 
+
+## etc:
+## Also arguably level of conservatism of the respondent should affect impact of leniency
+## treatment on outcome (general support). Specifically, conservative recipients of lenient
+## treatment should be less likely to support than non conservative recipients. Conservatives
+## at this time of protest were less in favour of this protest, more in favour of repression
+## of the protest (indicating that they are more supportive of criminal justice system as is), not 
+## in favour of change. Also, conservatives = more present in groups like "Back the Blue" etc. 
+## 
+
+## this will be tested with an additional interaction term:
+
+mod_add <- glm(elec_sup_pre ~ lenient_pre + white + black + birthyr + pknow
+               + as.factor(gender) + ideo + educ, family = "gaussian", cces)
+mod_int2 <- glm(elec_sup_pre ~ lenient_pre*ideo + white + black + birthyr + pknow
+                + as.factor(gender) + ideo + educ, family = "gaussian", cces)
+
+## table of both models (additive v interaction):
+
+stargazer(mod_add, mod_int2, dep.var.labels = c("Re-election Support"), 
+          title = "Regression Models including conservative*lenient, Study 1",
+          header = FALSE, digits=2, style = "apsr", star.cutoffs = c(.05, .01, .001), 
+          covariate.labels = c("Lenient Sentence (1 Day)", "White", "Black", "Age", "Pros. Knowledge", "Woman", "Conservatism", "Education"))
+
+## VERY INTERESTING RESULTS, large STATISTICAL SIGNIFICANCE (p<0.001) AND GOES IN THE OPPOSITE DIRECTION!
+## (included on Twist .tex document)
+## These results indicate that the driving of the postitive impact of the lenient treatment on 
+## support is pretty much entirely from less conservative respondents (makes sense during this 
+## period of polarisation in the US in particular, and concerning the general differences
+## in beliefs of conservatives vs liberals when it comes to punishment in the US).
